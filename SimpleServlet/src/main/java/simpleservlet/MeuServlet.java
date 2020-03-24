@@ -21,6 +21,7 @@ public class MeuServlet extends HttpServlet {
 		writer.write("<body>");
 		writer.write("<h1>");
 		writer.write("Primeiro Servlet :) ");
+		writer.write(String.format(" Ultimo nome foi %s", req.getSession().getAttribute("ultimoNome")));
 		writer.write("</hF1>");
 		writer.write("</body>");
 		writer.write("</html>");
@@ -29,7 +30,7 @@ public class MeuServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nome = req.getParameter("nome");
-		
+		req.getSession().setAttribute("ultimoNome", nome);
 		PrintWriter writer = resp.getWriter();
 		writer.write("<html>");
 		writer.write("<body>");
