@@ -24,7 +24,19 @@ public class MeuServlet extends HttpServlet {
 		writer.write("</hF1>");
 		writer.write("</body>");
 		writer.write("</html>");
-
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String nome = req.getParameter("nome");
+		
+		PrintWriter writer = resp.getWriter();
+		writer.write("<html>");
+		writer.write("<body>");
+		writer.write("<h1>");
+		writer.write(String.format("Bom dia %s!", nome));
+		writer.write("</hF1>");
+		writer.write("</body>");
+		writer.write("</html>");
+	}
 }
